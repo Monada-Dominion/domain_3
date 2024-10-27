@@ -1,0 +1,72 @@
+Performs a logical AND operation, outputting true only when both inputs are true (1).
+Executes a logical OR operation, producing true if at least one input is true (1).
+Reverses the logical state of the input, turning true to false and vice versa.
+Inverts the result of an AND gate; true becomes false, and false becomes true.
+Inverts the result of an OR gate; true becomes false, and false becomes true.
+Produces true if the inputs are different; false if they are the same.
+Generates true if inputs are the same; false if they are different.
+Stores a binary value, changing based on clock signals.
+A flip-flop with Set, Reset, and Toggle functionalities.
+A flip-flop controlled by Set and Reset inputs.
+A flip-flop with Set and Reset functionalities.
+Combines preset and clear functions in a D-type flip-flop, enabling predefined states and data erasure.
+Features an enable input, providing control over when data is loaded into the flip-flop, ensuring precise timing.
+Combines preset and clear functionalities in a JK flip-flop, allowing for predefined states and data erasure, ensuring precise control over data storage.
+A different type of JK flip-flop that responds to toggle inputs for state transitions, offering versatility in sequential logic design.
+A flip-flop with two sequential stages, ensuring stable output.
+Triggered by a signal's rising or falling edge, capturing data changes.
+Operates based on continuous signal levels, capturing stable states.
+Contains two flip-flops in a single unit, enhancing processing power.
+This component acts as a three-state buffer, providing a high-impedance state when disabled and allowing flexible data control in sequential logic circuits.
+Selects one input from multiple sources based on control signals.
+Converts binary input into an output line, facilitating data decoding.
+Turns multiple inputs into a binary code, enabling efficient data compression.
+Distributes data from one source to multiple destinations based on control.
+Cycles through a sequence, ensuring data progression.
+A specific type of ring counter, implementing circular shifting of bits.
+Sequential counting with carry propagation, ensuring accurate data representation.
+A binary counter circuit using synchronized flip-flops for rapid counting with fixed time intervals.
+This counter can count both in an increasing and decreasing sequence, offering greater versatility in data processing and control.
+MOD Counters are cascaded counter circuits which count to a set modulus value before resetting
+A digital circuit that divides an input frequency by a specified factor, producing a lower output frequency.
+A shift register that allows serial input data to be converted into parallel output data, facilitating efficient data transfer and storage.
+This register can shift data in both directions (left and right) and can also load data in parallel, providing versatile data manipulation capabilities.
+Operates without a clock signal, allowing asynchronous data manipulation.
+Counts in synchronization with a clock signal, ensuring orderly progression.
+A digital system prone to unstable equilibrium, causing unpredictable behavior in logic circuits.
+A hybrid counter merges asynchronous counters, logic gates, and clock gating circuits for precise multi-bit counting with lower power usage than synchronous counters.
+Performs logic operations based solely on input, enabling immediate data processing.
+Utilizes memory elements for data storage, ensuring information retention.
+A digital system for sequential logic, enabling step-by-step data processing.
+Output depends on current input and state, allowing for dynamic data output.
+Output depends solely on current input, facilitating specific data representation.
+Amplifies input signal differences using superposition, calculating output voltages for each input and combining them to obtain the final output voltage.
+This logic component encodes multiple binary inputs into a binary code, with the output indicating the highest-priority active input.
+Inspired by human brain function, mimicking neural connections for sophisticated processing.
+Uses fuzzy set theory for decision-making, enabling nuanced and probabilistic data analysis.
+Searches for optimal solutions through iterative selection and evaluation processes.
+A population-based search algorithm, mimicking evolutionary processes for optimal solutions.
+Simulates ant behavior to discover optimal paths, applying swarm intelligence for efficient solutions.
+A probabilistic optimization technique, simulating the annealing process for efficient search.
+Adapts to input and experience, ensuring dynamic adjustments for evolving scenarios.
+Learns from data and experience, optimizing future decisions based on past interactions.
+A sophisticated neuromorphic processor that mimics the functions of biological neurons and synapses for advanced cognitive processing.
+A learning neural network, adjusting its connections based on input patterns for improved performance.
+Combinations of artificial neural networks and fuzzy logic. Utilizes fuzzy logic principles for learning, allowing nuanced adaptation to input variations.
+This represents a deep learning neural network, characterized by multiple hidden layers, enabling complex pattern recognition and decision-making.
+An artificial neural network that more closely mimics natural neural networks. In addition to neuronal and synaptic state, SNNs incorporate the concept of time into their operating model.
+A meta-heuristic optimization algorithm that combines concepts of quantum computing with evolutionary algorithms.
+Quantum-behaved particle swarm optimization (QPSO) is an advancement of PSO that introduces a probabilistic model inspired by quantum mechanics to update particle position. 
+This advanced version of ant colony optimization incorporates principles of quantum computing to enhance problem-solving capabilities, aligning with the complexity level of the list.
+A variant of simulated annealing (SA) algorithm in which the algorithm parameters that control temperature schedule and random step selection are automatically adjusted according to algorithm progress.
+A complex and advanced machine learning approach that combines deep learning and reinforcement learning to achieve advanced decision-making and problem-solving.
+A quantum circuit is a model for quantum computation, akin to classical circuits, involving quantum gates, measurements, qubit initializations, and potential additional actions in a computation sequence.
+Combines learning and adaptability within its structure, optimizing future decisions and internal configurations.
+A computational neural network model which is based on the principles of quantum mechanics.
+A neural network based on the Takagi–Sugeno fuzzy inference system, combining neural network and fuzzy logic principles for dual benefits in a single framework.
+A hybrid optimization approach that combines genetic algorithm principles with quantum computing to efficiently explore and optimize solution spaces using quantum representations.
+An algorithm which runs on a realistic model of quantum computation, the most commonly used model being the quantum circuit model of computation.
+A quantum-based optimization method, seeking the best solution while minimizing error, with the potential for significant speed improvements.
+A structured representation in quantum computing that models complex decision-making processes involving superposition, entanglement, and quantum nondeterminism.
+An innovative computing model inspired by brain neural activity, enabling in-memory processing and versatile memory retention, ideal for diverse tasks, including AI apps.
+A theoretical concept in computer science utilizing chaotic systems for computations, capable of rapidly generating diverse logic gates through chaotic behavior and sensitivity to initial conditions.
