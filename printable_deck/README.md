@@ -1,6 +1,4 @@
-Here's a `README.md` for the `printable_deck` directory of the [Monada Dominion Time Cards](https://github.com/Monada-Dominion/domain_3) repository, based on the compressed manual content:
-
----
+[![License: CC BY-NC-ND 4.0](https://img.shields.io/badge/License-CC%20BY--NC--ND%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-nd/4.0/)
 
 # 🃏 Monada Dominion Time Cards Deck
 
@@ -114,21 +112,8 @@ This folder contains the printable PDF of the deck:
 
 ---
 
-## 📁 Folder Overview
+## 📄 License
 
-```
-printable_deck/
-├── MD Time Cards.pdf   # Full printable deck with rules
-```
+This project is licensed under the [CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/) license.
 
----
-
-## 🚀 Get Started
-
-1. Print the deck
-2. Play "The Integral Fool"
-3. Practice Updraft or Downdraft
-4. Use card spreads to analyze and reframe your reality
-5. Create your own layouts!
-
----
+You may share this work **with credit**, **non-commercially**, and **without modification**.
