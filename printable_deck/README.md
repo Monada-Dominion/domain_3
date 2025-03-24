@@ -109,7 +109,7 @@ This folder contains the printable PDF of the deck:
 
 - **Idea & Design**: Artur Kraskov  
 - Project by [Monada Dominion](https://github.com/Monada-Dominion)  
-- Token: `$XDDT`  
+- Order printed deck: krasnomakov@gmail.com
 - Game: **MJ**
 
 ---
@@ -132,5 +132,3 @@ printable_deck/
 5. Create your own layouts!
 
 ---
-
-Let me know if you want a simplified version, images for GitHub display, or translation into another language.
