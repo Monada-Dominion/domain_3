@@ -27,16 +27,38 @@ void start_game(Game* game) {
 
 void player_move(Game* game, int player_id, int card_index) {
     Card* selected_card;
+    Player* player;
+
     if (player_id == 1) {
-        selected_card = game->player1.hand[card_index];
-        game->player1.hand[card_index] = NULL; // Remove from hand
-        game->center_card1 = selected_card; // Move to center
+        player = &game->player1;
     } else {
-        selected_card = game->player2.hand[card_index];
-        game->player2.hand[card_index] = NULL; // Remove from hand
-        game->center_card2 = selected_card; // Move to center
+        player = &game->player2;
     }
+
+    if (card_index < 0 || card_index >= player->hand_size) return;
+
+    selected_card = player->hand[card_index];
+    
+    // Shift cards to fill the gap
+    for (int i = card_index; i < player->hand_size - 1; i++) {
+        player->hand[i] = player->hand[i + 1];
+    }
+    player->hand[player->hand_size - 1] = NULL;
+    player->hand_size--;
+
+    if (player_id == 1) {
+        game->center_card1 = selected_card;
+    } else {
+        game->center_card2 = selected_card;
+    }
+
     printf("Player %d played card: %d\n", player_id, selected_card->number);
+}
+
+void replenish_hand(Player* player, Deck* deck) {
+    while (player->hand_size < 6 && deck->size > 0) {
+        player->hand[player->hand_size++] = draw_card(deck);
+    }
 }
 
 void compare_cards(Game* game) {
@@ -53,13 +75,35 @@ void compare_cards(Game* game) {
         game->player2.discard_pile[game->player2.discard_count++] = game->center_card2;
         printf("Player 2 wins the round.\n");
     } else {
-        // It's a tie, handle accordingly (e.g., both cards discarded)
-        printf("The round is a tie.\n");
+        // It's a tie, return cards to each player's discard pile
+        game->player1.discard_pile[game->player1.discard_count++] = game->center_card1;
+        game->player2.discard_pile[game->player2.discard_count++] = game->center_card2;
+        printf("The round is a tie. Cards returned.\n");
     }
 
     // Clear center cards after comparison
     game->center_card1 = NULL;
     game->center_card2 = NULL;
+}
+
+void reset_game(Game* game) {
+    // Clear hands and discard piles
+    for (int i = 0; i < game->player1.hand_size; i++) game->player1.hand[i] = NULL;
+    for (int i = 0; i < game->player2.hand_size; i++) game->player2.hand[i] = NULL;
+    for (int i = 0; i < game->player1.discard_count; i++) game->player1.discard_pile[i] = NULL;
+    for (int i = 0; i < game->player2.discard_count; i++) game->player2.discard_pile[i] = NULL;
+    
+    game->player1.hand_size = 0;
+    game->player1.discard_count = 0;
+    game->player2.hand_size = 0;
+    game->player2.discard_count = 0;
+    
+    // Reset deck
+    destroy_deck(game->deck);
+    game->deck = create_deck();
+    
+    // Restart game
+    start_game(game);
 }
 
 void destroy_game(Game* game) {

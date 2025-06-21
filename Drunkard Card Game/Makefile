@@ -1,6 +1,6 @@
 CC = gcc
 CFLAGS = -I/opt/homebrew/include/SDL2 -D_REENTRANT
-LDFLAGS = -L/opt/homebrew/lib -lSDL2
+LDFLAGS = -L/opt/homebrew/lib -lSDL2 -lSDL2_ttf -lSDL2_image
 
 SRC = src/main.c src/card.c src/deck.c src/game.c
 OBJ = $(SRC:.c=.o)

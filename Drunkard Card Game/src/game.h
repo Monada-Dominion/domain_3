@@ -23,5 +23,7 @@ void start_game(Game* game);
 void player_move(Game* game, int player_id, int card_index);
 void compare_cards(Game* game);
 void destroy_game(Game* game);
+void replenish_hand(Player* player, Deck* deck);
+void reset_game(Game* game);
 
 #endif

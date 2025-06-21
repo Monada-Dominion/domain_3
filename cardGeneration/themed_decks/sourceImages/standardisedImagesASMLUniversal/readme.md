@@ -1,0 +1,1 @@
+AI generated images representing various processes at ASML.
