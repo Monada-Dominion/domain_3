@@ -1,6 +1,6 @@
 # Drunkard Card Game
 
-This project is a C-based prototype for a card game, demonstrating the use of generated card assets. It is built using the SDL2 library for graphics and user input.
+This project is a C-based prototype for a card game, demonstrating the use of generated card assets. It is built using the SDL2 library for graphics and user input. Buit on mac os, where SDL was installed with brew. For your set up change paths to SDL builds. 
 
 [![Language](https://img.shields.io/badge/Language-C-blue.svg)](https://en.wikipedia.org/wiki/C_(programming_language))
 
