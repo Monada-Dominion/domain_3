@@ -1,21 +1,39 @@
-# 🔺 Monada Dominion: Domain 3 🃏
+# 🃏 Domain 3: The Triangle - Cards
 
-Welcome to Domain 3, a diverse collection of projects centered around card generation, simulations, and data visualization. This repository contains everything from a playable C-based card game to Python scripts for web scraping and generating unique, themed card decks.
+<p align="center">
+  <img src="https://img.shields.io/github/last-commit/monada-dominion/domain_3?style=for-the-badge" alt="GitHub last commit">
+  <img src="https://img.shields.io/github/repo-size/monada-dominion/domain_3?style=for-the-badge" alt="GitHub repo size">
+</p>
 
-[![License: CC BY-NC-ND 4.0](https://img.shields.io/badge/License-CC%20BY--NC--ND%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-nd/4.0/)
-
----
-
-## 🛠️ Technologies & Frameworks
-
-![C](https://img.shields.io/badge/C-A8B9CC?style=for-the-badge&logo=c&logoColor=white)
-![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![SDL2](https://img.shields.io/badge/SDL2-1E8449?style=for-the-badge&logo=sdl&logoColor=white)
-![Folium](https://img.shields.io/badge/Folium-2E86C1?style=for-the-badge&logo=python&logoColor=white)
+<p align="center">
+  <em>A diverse collection of projects centered around card generation.</em>
+</p>
 
 ---
 
-## 📁 Project Directory
+Welcome to Domain 3, a card deck domain. It's a diverse collection of projects centered around card generation, simulations, and data visualization. This repository contains everything from a playable C-based card game to Python scripts for web scraping and generating unique, themed card decks.
+
+## 🗺️ Initial domains of Monada Dominion
+
+It is a progressive journey structured into several domains. While you can explore some parts out of order, the intended path is designed for a gradual unfolding of understanding.
+
+*   **🌀 Domain 1: The Dot - Mindfulness** (<a href="https://github.com/Monada-Dominion/domain_1">Link</a>)
+    *   Essential preparation for the entire MD system - Shin-Lap mindfulness program.
+
+*   **🧘‍♂️ Domain 2: The Line - Meditation** (<a href="https://github.com/Monada-Dominion/domain_2">Link</a>)
+    *   Can be explored without preparation, but the need for theory from Domain 1 will emerge as you progress.
+
+*   **🃏 Domain 3: The Triangle - Cards** (You are here)
+    *   This is a card deck domain. It will not fully reveal itself without completing Domains 1 and 2. However, it's always possible to create something new.
+
+*   **🔒 Domain 4: The quadrangle - Algorithms**
+    *   Not visible or available without the knowledge from all three preceding domains.
+
+> Further steps are obscured but can be opened on demand. All currently available domains: (<a href="https://github.com/Monada-Dominion/domain_3">Link</a>)
+
+---
+
+## 🚀 Projects in this Domain
 
 ### 🃏 `Drunkard Card Game/`
 A fully playable graphical card game built from the ground up in C using the SDL2 library for rendering, fonts, and images.
@@ -41,3 +59,23 @@ A simple and fun command-line word guessing game implemented in Python. It simul
 This directory contains ready-to-print PDF files of the generated card decks, perfect for creating physical copies of your creations.
 
 -   **To Use:** Open the PDF files and print them to create your own physical card decks.
+
+---
+## 🛠️ Technologies & Frameworks
+
+![C](https://img.shields.io/badge/C-A8B9CC?style=for-the-badge&logo=c&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![SDL2](https://img.shields.io/badge/SDL2-1E8449?style=for-the-badge&logo=sdl&logoColor=white)
+![Folium](https://img.shields.io/badge/Folium-2E86C1?style=for-the-badge&logo=python&logoColor=white)
+
+---
+
+## 🙌 Contributing
+
+Found a typo or have a suggestion? Contributions are welcome! Please feel free to open an issue or submit a pull request to improve the materials.
+
+## 📄 License
+
+[![License: CC BY-NC-ND 4.0](https://img.shields.io/badge/License-CC%20BY--NC--ND%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-nd/4.0/)
+
+This project is open-source. See the [LICENSE](LICENSE) file for more details.
