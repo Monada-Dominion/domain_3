@@ -1,7 +1,17 @@
-# MJ Project
+# Mystical Journey (MJ)
 
-This project contains a collection of Python scripts for processing geographical data and generating creative content from it. The scripts can create interactive maps, fetch live data from web services, and generate "cards" from a text corpus.
+This directory contains files for generation of a 72 card deck from A. Krasnomakov's Surreal Story: About the Spider and the time. 
 
+This deck is an essential element for a transforamtional game with alternative worlds and meta world of the tetrad of books by A. Krasnomakov. 
+
+the first book of the triad is available in this repo as .md file. Use it wisely. 
+
+With the script 72 text cards are generated and can allow players to make moves in any version of MJ GAME: 
+- mystical triangle 
+- mystical enneagram 
+- mystical duodecade with four alternative realms and the meta land (turn based table top version)
+- mystical duodecade with four alternative realms and the meta land (chat based online)
+- mystical duodecade with four alternative realms and the meta land (real world version)
 ---
 
 ##  Scripts and Their Functions
@@ -11,6 +21,7 @@ This project contains a collection of Python scripts for processing geographical
 -   `get_72_mj_cards.py`: This script reads the text from `about_the_spider_and_the_time.md`, a large text file, and extracts 72 random sentences to create a deck of "cards," which are saved in `cards.md`.
 
 ### Mapping
+
 
 -   `maps.py`: Generates an interactive HTML map (`divided_map.html`) using the Folium library. The map is centered on a user-provided or random set of coordinates and is divided into 12 radial sections.
 -   `maps_to_point_no_data.py`: Similar to `maps.py`, but likely focuses on pointing to specific locations without additional data overlays.

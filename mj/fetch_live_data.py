@@ -22,6 +22,6 @@ def fetch_street_view_image(lat, lon, api_key, output_file="street_view.jpg"):
         print(f"Error: Unable to fetch Street View image. Status code: {response.status_code}")
 
 # Example usage
-api_key = "AIzaSyBkzCIpVDYvjOYFHHc3tYtKLwQXrGkwRc8"  # Replace with your API key
+api_key = "<YOUR_API_KEY>"  # Replace with your API key
 lat, lon = 51.43136241297104, 5.483785233930436   # Replace with your coordinates
 fetch_street_view_image(lat, lon, api_key)
