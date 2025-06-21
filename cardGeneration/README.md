@@ -1,23 +1,44 @@
-# 🃏 Cards Challenge: From Logic Gates to Quantum Computing
+# Card Generation Project
 
-This project is a unique learning journey that uses a card-based challenge system to guide you from the fundamentals of Electrical Engineering to the complexities of advanced computing. Get a card, generate code for it, create a simulation, and synthesize your solutions for FPGAs.
-
-![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![Verilog](https://img.shields.io/badge/Verilog-8E44AD?style=for-the-badge&logo=verilog&logoColor=white)
-![FPGA](https://img.shields.io/badge/FPGA-1E8449?style=for-the-badge&logo=fpga&logoColor=white)
-![AI](https://img.shields.io/badge/AI-F39C12?style=for-the-badge&logo=openai&logoColor=white)
+This project is a collection of tools and assets for generating themed decks of cards. It includes web scrapers to gather data, scripts to generate card images, and pre-made decks.
 
 ---
 
-## 🚀 The Concept
-
-The core idea is to learn by doing. Each card represents a specific concept or challenge, starting with basic logic gates and progressively moving towards more complex systems like Quantum and Chaos computers. By completing these challenges, you'll build a "deck" of skills and reusable logic that can be applied to your own projects.
-
 ## 📁 Directory Structure
 
--   `md_time_cards/`: Contains the primary collection of generated card images that form the basis of the challenges.
--   `themed_decks/`: This directory holds specialized decks of cards, grouped by specific themes or technologies.
--   `webScraper/`: A collection of Python scripts (`webScraper.py`, `webScraperAndTranslate.py`) used to scrape and process data for card generation.
+### `md_time_cards/`
+
+This directory contains the core tools for generating a deck of 72 "Time Cards".
+
+-   **Python Scripts:**
+    -   `card_gen.py`: Generates individual card images.
+    -   `deck_gen.py`: Assembles a full deck of cards.
+    -   `a4_assembler.py` & `a4_assembler_optimised.py`: Arranges cards onto an A4-sized sheet for printing.
+    -   `card_back_assembler.py`: Creates the back of the cards.
+    -   `glitcher.py`: A script to apply a "glitch" effect to images.
+-   **Assets and Output:**
+    -   `output_folder/`: The default location for generated card images.
+    -   `a4_to_print/`: The default location for generated A4 print sheets.
+
+### `themed_decks/`
+
+This directory is for creating specialized, themed decks.
+
+-   **Python Scripts:**
+    -   `final_card_generator.py` & `cardGenerationUniqueHeaders.py`: Scripts for generating cards with unique themes and headers.
+-   **Assets and Output:**
+    -   `sourceImages/`, `fonts/`, `namesAndDescriptions/`: Contain the assets needed to create the themed decks.
+    -   `ready_decks_examples/`: Contains examples of fully generated themed decks.
+    -   `final_cards/`: The output directory for the generated themed cards.
+
+### `webScraper/`
+
+This directory contains Python scripts for scraping card data from [https://chrisgeene.nl/cards/](https://chrisgeene.nl/cards/).
+
+-   `webScraper.py`: Scrapes the data and saves it to `output.json`.
+-   `webScraperAndTranslate.py`: Scrapes the data, translates it from Dutch to English, and saves it to `translatedOutput.json`.
+-   `output.json`: The raw, untranslated scraped data.
+-   `translatedOutput.json`: The English translation of the scraped data.
 
 ## 🍷 A Final Note
 
