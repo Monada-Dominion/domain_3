@@ -30,6 +30,8 @@ Make sure that the `words.txt` file is in the same directory as the script.
 
 ## 📄 License
 
-This project is licensed under the [CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/) license.
+This project is licensed under the [CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/) license in terms of text and printable materials.
+
+The repo is licensed with a custom Monada Dominion Non-Commercial No-Derivatives Source License (MD-NC-ND) v1.0.
 
 You may share this work **with credit**, **non-commercially**, and **without modification**.
