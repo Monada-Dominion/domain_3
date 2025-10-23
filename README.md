@@ -76,6 +76,6 @@ Found a typo or have a suggestion? Contributions are welcome! Please feel free t
 
 ## 📄 License
 
-[![License: CC BY-NC-ND 4.0](https://img.shields.io/badge/License-CC%20BY--NC--ND%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-nd/4.0/)
+Monada Dominion Non-Commercial No-Derivatives Source License (MD-NC-ND) v1.0
 
 This project is open-source. See the [LICENSE](LICENSE) file for more details.
