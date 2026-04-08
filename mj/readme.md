@@ -19,6 +19,7 @@ With the script 72 text cards are generated and can allow players to make moves 
 ### Card Generation
 
 -   `get_72_mj_cards.py`: This script reads the text from `about_the_spider_and_the_time.md`, a large text file, and extracts 72 random sentences to create a deck of "cards," which are saved in `cards.md`.
+-   `play_cards_cli.py`: Launches a terminal card drawer UI (curses-based). Press `G` (or Enter/Space) to draw a random card, `R` to reset the deck, and `Q` to quit.
 
 ### Mapping
 
@@ -31,6 +32,20 @@ With the script 72 text cards are generated and can allow players to make moves 
 ### Data Fetching
 
 -   `fetch_live_data.py`: Fetches a Google Street View image for a specified latitude and longitude using the Google Maps Street View API. **Note:** This script requires a valid Google Cloud API key to function.
+
+## Quick Start: Terminal Card Drawer
+
+From the `mj` directory:
+
+```bash
+python3 play_cards_cli.py
+```
+
+The game reads cards from `cards.md`. If needed, regenerate cards first:
+
+```bash
+python3 get_72_mj_cards.py
+```
 
 ## Files
 
