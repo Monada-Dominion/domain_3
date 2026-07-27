@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mystical Journey (MJ) - Transformational Meta-Game</title>
+  <meta name="description" content="A transformational real-world alternate reality game (ARG) using 72 cards derived from A. Krasnomakov's About the Spider and the Time. State your goal, interpret cards, explore coordinates, and complete the journey.">
+
+  <!-- Leaflet CSS for Real-World Map -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+
+  <!-- App CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- App Header -->
+  <header class="app-header">
+    <div class="brand">
+      <div class="brand-icon">🔮</div>
+      <div>
+        <div class="brand-title">MYSTICAL JOURNEY</div>
+        <div class="brand-subtitle">Real-World Meta-Game • 72 Cards</div>
+      </div>
+    </div>
+    <div class="header-actions">
+      <a href="manual.html" class="btn btn-sm" style="text-decoration: none;">📖 Game Manual</a>
+      <button id="btn-metagame-info" class="btn btn-sm">🌐 Meta-Game Info</button>
+      <button id="btn-map" class="btn btn-cyan btn-sm">🗺️ Real-World Map</button>
+      <button id="btn-deck-gallery" class="btn btn-sm">🃏 View Deck</button>
+      <button id="btn-history" class="btn btn-sm">📜 Game Log</button>
+      <button id="btn-restart" class="btn btn-sm hidden">🔄 New Game</button>
+    </div>
+  </header>
+
+  <main class="container">
+    
+    <!-- SETUP VIEW -->
+    <section id="view-setup" class="setup-card">
+      <div class="setup-header">
+        <h1>Begin The Mystical Journey</h1>
+        <p>A transformational real-world meta-game based on A. Krasnomakov's <em>About the Spider and the Time</em>.<br>Select players, define core goals, or enable Game Master facilitation.</p>
+      </div>
+
+      <!-- Mode Selector (Player vs Game Master vs Advanced Stealth) -->
+      <div style="display: flex; justify-content: center; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap;">
+        <label class="btn btn-sm" id="label-mode-player" style="cursor: pointer; background: rgba(226,176,76,0.2); border-color: var(--accent-gold);">
+          <input type="radio" name="game-mode" value="player" checked style="margin-right: 0.4rem;"> 🎮 Standard Mode
+        </label>
+        <label class="btn btn-sm" id="label-mode-advanced" style="cursor: pointer;">
+          <input type="radio" name="game-mode" value="advanced" style="margin-right: 0.4rem;"> 🌌 Advanced Stealth Mode (UM Matrix)
+        </label>
+        <label class="btn btn-sm" id="label-mode-gm" style="cursor: pointer;">
+          <input type="radio" name="game-mode" value="gm" style="margin-right: 0.4rem;"> 👁️ Game Master (GM) Mode
+        </label>
+      </div>
+
+      <!-- Player Count Selection -->
+      <div class="player-count-selector">
+        <div class="section-label">
+          <span>👥 Number of Players</span>
+        </div>
+        <div class="player-count-grid" id="player-count-grid">
+          <div class="count-btn" data-count="1">
+            <span class="num">1</span>
+            <span class="badge">Solo</span>
+          </div>
+          <div class="count-btn" data-count="2">
+            <span class="num">2</span>
+            <span class="badge">Duo</span>
+          </div>
+          <div class="count-btn selected" data-count="3">
+            <span class="num">3</span>
+            <span class="badge">Ideal</span>
+          </div>
+          <div class="count-btn" data-count="4">
+            <span class="num">4</span>
+            <span class="badge">Ideal</span>
+          </div>
+          <div class="count-btn" data-count="5">
+            <span class="num">5</span>
+            <span class="badge">Group</span>
+          </div>
+          <div class="count-btn" data-count="6">
+            <span class="num">6</span>
+            <span class="badge">Max</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Player Form Inputs List -->
+      <div id="players-form-list" class="players-form-list">
+        <!-- Dynamically rendered by JS -->
+      </div>
+
+      <div style="text-align: center; margin-top: 2rem;">
+        <button id="btn-start-game" class="btn btn-primary" style="font-size: 1.1rem; padding: 0.8rem 2.5rem;">
+          ✨ Start Mystical Journey
+        </button>
+      </div>
+    </section>
+
+    <!-- GAMEPLAY VIEW -->
+    <section id="view-game" class="game-view hidden">
+      
+      <!-- Top Players Scoreboard -->
+      <div id="players-bar" class="players-bar">
+        <!-- Rendered by JS -->
+      </div>
+
+      <!-- SVG Triangle-in-Circle Game Field -->
+      <div class="triangle-board-container">
+        <div class="board-header">
+          <div style="font-family: var(--font-title); color: var(--text-gold); font-size: 1.1rem; font-weight: 700;">
+            🔺 Triangle Game Field & Active Player Positions
+          </div>
+          <div style="font-size: 0.8rem; color: var(--accent-cyan);">
+            ↻ Team 1 (Clockwise): Support • ↺ Team 2 (Counter-Clockwise): Oppose
+          </div>
+        </div>
+
+        <div style="position: relative; text-align: center; margin: 1rem 0;">
+          <svg id="triangle-svg-board" viewBox="0 0 440 380" style="max-width: 480px; width: 100%; filter: drop-shadow(0 0 15px rgba(226, 176, 76, 0.25));">
+            <!-- Outer Circle -->
+            <circle cx="220" cy="190" r="165" fill="none" stroke="rgba(56, 189, 248, 0.4)" stroke-width="2" stroke-dasharray="6,6"/>
+            <circle cx="220" cy="190" r="172" fill="none" stroke="rgba(226, 176, 76, 0.3)" stroke-width="1"/>
+
+            <!-- Direction Arrows -->
+            <text x="395" y="195" fill="#e2b04c" font-size="12" font-weight="bold">↻ T1</text>
+            <text x="10" y="195" fill="#38bdf8" font-size="12" font-weight="bold">↺ T2</text>
+
+            <!-- Triangle -->
+            <polygon points="220,55 365,310 75,310" fill="rgba(15, 23, 42, 0.7)" stroke="#e2b04c" stroke-width="3"/>
+            <polygon points="220,85 335,290 105,290" fill="rgba(30, 27, 75, 0.5)" stroke="rgba(168, 85, 247, 0.4)" stroke-width="1.5"/>
+
+            <!-- Vertex Sphere Labels -->
+            <!-- Top: INFORMATION -->
+            <circle cx="220" cy="55" r="26" fill="#0f172a" stroke="#38bdf8" stroke-width="3"/>
+            <text x="220" y="60" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">INFO</text>
+
+            <!-- Bottom Right: MATTER -->
+            <circle cx="365" cy="310" r="26" fill="#0f172a" stroke="#10b981" stroke-width="3"/>
+            <text x="365" y="315" fill="#6ee7b7" font-size="10" font-weight="bold" text-anchor="middle">MATTER</text>
+
+            <!-- Bottom Left: ENERGY -->
+            <circle cx="75" cy="310" r="26" fill="#0f172a" stroke="#f43f5e" stroke-width="3"/>
+            <text x="75" y="315" fill="#fda4af" font-size="10" font-weight="bold" text-anchor="middle">ENERGY</text>
+
+            <!-- Player Tokens Layer -->
+            <g id="svg-player-tokens"></g>
+          </svg>
+        </div>
+
+        <!-- Live Player Positions Bar -->
+        <div id="player-sphere-positions-list" class="player-positions-bar">
+          <!-- Rendered by JS -->
+        </div>
+      </div>
+
+      <!-- Play Area -->
+      <div class="play-area">
+        
+        <!-- Left Deck Control -->
+        <div class="deck-panel">
+          <h2 class="deck-title">72 Card Deck</h2>
+          <div id="deck-count-text" class="deck-count">72 / 72 Cards Remaining</div>
+          
+          <div id="card-stack-visual" class="card-stack" title="Click to draw a card">
+            <div class="stack-card"></div>
+            <div class="stack-card"></div>
+            <div class="stack-card"></div>
+          </div>
+
+          <button id="btn-draw-card" class="btn btn-primary" style="width: 100%; margin-bottom: 0.75rem;">
+            🃏 Draw Card
+          </button>
+          <button id="btn-dispatch-coords" class="btn btn-cyan btn-sm" style="width: 100%; margin-bottom: 0.75rem;">
+            📍 Dispatch ARG Location
+          </button>
+          <button id="btn-regen-deck" class="btn btn-sm" style="width: 100%;">
+            ⚡ Generate New Deck
+          </button>
+        </div>
+
+        <!-- Right Active Card & Interpretation Arena -->
+        <div class="arena-panel">
+          
+          <!-- Empty State before draw -->
+          <div id="arena-empty" class="empty-state">
+            <div class="empty-icon">📜</div>
+            <h2>Active Turn: <span id="active-player-name-placeholder" style="color: var(--accent-gold);">Player 1</span></h2>
+            <p>Click <strong>"Draw Card"</strong> to pull a book quote, select your 3x3 polarized aspect, and open team debate.</p>
+          </div>
+
+          <!-- Drawn Card Container -->
+          <div id="arena-active" class="drawn-card-container hidden">
+            
+            <div class="mystic-card">
+              <div class="card-header">
+                <span id="card-number-display" class="card-number">Card 1</span>
+                <span id="card-goal-tag" class="card-tag">Energy Goal</span>
+              </div>
+              <p id="card-text-display" class="card-body-text">
+                "Fire, in turn, in most situations transmits a stronger impulse than friction..."
+              </p>
+
+              <!-- ARG / Support Location Card Banner -->
+              <div id="arg-target-banner" class="support-location-card hidden">
+                <div style="font-weight: 700; color: var(--accent-cyan); font-size: 0.95rem; margin-bottom: 0.3rem; display: flex; justify-content: space-between;">
+                  <span>📍 Real-World Support Location Card</span>
+                  <span id="arg-sector-tag" class="badge-tag">Sector 3</span>
+                </div>
+                <div>Coordinates: <strong id="arg-coords-text">51.5074, -0.1278</strong></div>
+                <div style="margin-top: 0.5rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                  <a id="link-google-streetview" href="#" target="_blank" class="btn btn-sm btn-cyan" style="font-size: 0.75rem; text-decoration: none;">📷 Open Street View</a>
+                  <a id="link-osm-map" href="#" target="_blank" class="btn btn-sm" style="font-size: 0.75rem; text-decoration: none;">🗺️ View on OpenStreetMap</a>
+                </div>
+              </div>
+
+              <!-- 3x3 Polarized Aspect Picker -->
+              <div class="aspect-picker-container" style="margin-bottom: 1.2rem; background: rgba(9, 12, 22, 0.7); padding: 1rem; border-radius: 10px; border: 1px solid var(--border-gold);">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.6rem;">
+                  <div style="font-weight: 700; color: var(--accent-gold); font-size: 0.95rem;">
+                    ⚖️ Selected Aspect (3x3 Grid):
+                  </div>
+                  <div id="selected-aspect-banner" class="selected-aspect-badge">
+                    MATTER / MATTER
+                  </div>
+                </div>
+
+                <div id="aspect-grid-3x3" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.4rem;">
+                  <button type="button" class="aspect-chip selected" data-aspect="MATTER / MATTER">Matter / Matter</button>
+                  <button type="button" class="aspect-chip" data-aspect="MATTER / ENERGY">Matter / Energy</button>
+                  <button type="button" class="aspect-chip" data-aspect="MATTER / INFO">Matter / Info</button>
+                  
+                  <button type="button" class="aspect-chip" data-aspect="ENERGY / MATTER">Energy / Matter</button>
+                  <button type="button" class="aspect-chip" data-aspect="ENERGY / ENERGY">Energy / Energy</button>
+                  <button type="button" class="aspect-chip" data-aspect="ENERGY / INFO">Energy / Info</button>
+                  
+                  <button type="button" class="aspect-chip" data-aspect="INFO / MATTER">Info / Matter</button>
+                  <button type="button" class="aspect-chip" data-aspect="INFO / ENERGY">Info / Energy</button>
+                  <button type="button" class="aspect-chip" data-aspect="INFO / INFO">Info / Info</button>
+                </div>
+              </div>
+
+              <!-- Universal Matrix (UM) Visual Communication Tool -->
+              <div id="um-matrix-container" class="um-matrix-panel" style="margin-bottom: 1.2rem; background: rgba(15, 23, 42, 0.9); border: 1px solid var(--accent-purple); padding: 1rem; border-radius: 12px;">
+                <div style="font-weight: 700; color: var(--accent-purple); font-size: 0.9rem; margin-bottom: 0.3rem; display: flex; justify-content: space-between;">
+                  <span>📐 Universal Matrix (UM) Stealth Visual Cypher</span>
+                  <span style="font-size: 0.75rem; color: var(--text-muted);">Secret Stealth Encoding Interface</span>
+                </div>
+                <div style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.75rem;">
+                  In advanced stealth environments, direct logical reasoning is vulnerable to cognitive interception. Click cells to encode your strategy matrix secretly:
+                </div>
+                <div id="um-grid-3x3" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem; max-width: 320px; margin: 0 auto;">
+                  <button type="button" class="um-cell" data-cell="0,0">U1 [M]</button>
+                  <button type="button" class="um-cell" data-cell="0,1">U2 [E]</button>
+                  <button type="button" class="um-cell" data-cell="0,2">U3 [I]</button>
+                  <button type="button" class="um-cell" data-cell="1,0">U4 [M]</button>
+                  <button type="button" class="um-cell" data-cell="1,1">U5 [E]</button>
+                  <button type="button" class="um-cell" data-cell="1,2">U6 [I]</button>
+                  <button type="button" class="um-cell" data-cell="2,0">U7 [M]</button>
+                  <button type="button" class="um-cell" data-cell="2,1">U8 [E]</button>
+                  <button type="button" class="um-cell" data-cell="2,2">U9 [I]</button>
+                </div>
+              </div>
+
+              <!-- Direct Perception Prompt (Прямое Восприятие) -->
+              <div class="direct-perception-box">
+                <div style="font-weight: 700; color: var(--accent-gold); font-size: 0.9rem; margin-bottom: 0.3rem;">
+                  👁️ Direct Perception (Прямое Восприятие):
+                </div>
+                <div style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
+                  Observe the physical space or target coordinates. Every object, shadow, structure, or natural element in your view holds a clear connection to your inner state and goal. How does this space mirror your inner world?
+                </div>
+              </div>
+
+              <div id="card-guidance-display" class="guidance-box">
+                💡 How does this text reflect your declared goal? Interpret its message to gain an insight.
+              </div>
+            </div>
+
+            <!-- Interpretation & Team Debate Form -->
+            <div class="interpretation-section">
+              <label for="interpretation-text">
+                ✍️ <span id="interp-player-label">Player 1</span>'s Card Interpretation:
+              </label>
+              <textarea id="interpretation-text" class="interpretation-textarea" placeholder="Type your personal interpretation of this card and local observation in relation to your goal..."></textarea>
+              
+              <!-- Team Debate Section -->
+              <div style="border-top: 1px dashed var(--border-glass); padding-top: 0.8rem; margin-top: 0.4rem;">
+                <div style="font-weight: 700; color: var(--accent-cyan); font-size: 0.9rem; margin-bottom: 0.5rem; display: flex; justify-content: space-between;">
+                  <span>⚔️ Team Debate & Counter-Argumentation</span>
+                  <span style="font-weight: 400; font-size: 0.75rem; color: var(--text-muted);">Clockwise = Support | Counter-Clockwise = Oppose</span>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
+                  <div>
+                    <label style="font-size: 0.75rem; color: #6ee7b7; display: block; margin-bottom: 0.2rem;">
+                      ↻ Teammates Support Argument (Clockwise):
+                    </label>
+                    <textarea id="debate-support-text" class="input-text" style="height: 60px; font-size: 0.85rem;" placeholder="Supporting points & refinements..."></textarea>
+                  </div>
+                  <div>
+                    <label style="font-size: 0.75rem; color: #fda4af; display: block; margin-bottom: 0.2rem;">
+                      ↺ Opponents Counter-Argument (Counter-CW):
+                    </label>
+                    <textarea id="debate-oppose-text" class="input-text" style="height: 60px; font-size: 0.85rem;" placeholder="Challenges, doubts & objections..."></textarea>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group" style="margin-top: 0.5rem; margin-bottom: 0.5rem;">
+                <label class="form-label" style="font-size: 0.8rem; color: var(--text-muted);">📷 Photo / Video of Location (Optional URL or File Upload)</label>
+                <div style="display: flex; gap: 0.5rem;">
+                  <input type="text" id="input-media-url" class="input-text" placeholder="Paste image URL (http://...)" style="flex: 1; padding: 0.4rem 0.8rem; font-size: 0.85rem;">
+                  <input type="file" id="input-media-file" accept="image/*" style="display: none;">
+                  <button type="button" id="btn-upload-trigger" class="btn btn-sm">📁 Upload Image</button>
+                </div>
+                <div id="media-preview-container" class="hidden" style="margin-top: 0.5rem;">
+                  <img id="media-preview-img" src="" alt="Spatial Preview" style="max-height: 120px; border-radius: 8px; border: 1px solid var(--accent-gold);">
+                </div>
+              </div>
+
+              <div class="action-buttons">
+                <button id="btn-defer-card" class="btn">
+                  ⏳ Pass / Defer Turn
+                </button>
+                <button id="btn-accept-card" class="btn btn-primary">
+                  ⭐ Accept Insight & Collect Card (+1)
+                </button>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- MODALS -->
+
+  <!-- Meta-Game Info Modal -->
+  <div id="modal-metagame" class="modal-overlay">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h2>🌐 The Meta-Game Architecture</h2>
+        <button class="modal-close" data-close="modal-metagame">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+          <div style="background: rgba(15, 23, 42, 0.8); border: 1px solid var(--accent-gold); border-radius: 12px; padding: 1.25rem;">
+            <h3 style="color: var(--accent-gold); font-family: var(--font-title); margin-bottom: 0.5rem;">🎮 Alternate Reality & Meta Space</h3>
+            <p style="font-size: 0.95rem; line-height: 1.6; color: var(--text-main);">
+              Mystical Journey is an alternate reality game (ARG). It is not centralized within a single screen or Playstation—the game field spans digital space, physical cities, and real-world locations. Players meet game facilitators, draw cards, receive coordinates, and decode secret messages using physical surroundings.
+            </p>
+          </div>
+
+          <div style="grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); display: grid; gap: 1rem;">
+            <div style="background: rgba(15, 23, 42, 0.6); border: 1px solid var(--border-glass); border-radius: 10px; padding: 1rem;">
+              <h4 style="color: var(--accent-cyan); margin-bottom: 0.4rem;">🏛️ Game Master (GM) Facilitators</h4>
+              <p style="font-size: 0.85rem; color: var(--text-muted);">
+                In different cities, facilitators keep the physical card set, assign coordinates, and guide players through tabletop or real-world exploration.
+              </p>
+            </div>
+            <div style="background: rgba(15, 23, 42, 0.6); border: 1px solid var(--border-glass); border-radius: 10px; padding: 1rem;">
+              <h4 style="color: var(--accent-cyan); margin-bottom: 0.4rem;">🏙️ City & Globe as Game Field</h4>
+              <p style="font-size: 0.85rem; color: var(--text-muted);">
+                Entire cities can be turned into 12 radial sectors. Players choose areas, travel to assigned coordinates, and decode secret oracle messages.
+              </p>
+            </div>
+            <div style="background: rgba(15, 23, 42, 0.6); border: 1px solid var(--border-glass); border-radius: 10px; padding: 1rem;">
+              <h4 style="color: var(--accent-cyan); margin-bottom: 0.4rem;">🎨 Dedicated Spaces & AR/VR</h4>
+              <p style="font-size: 0.85rem; color: var(--text-muted);">
+                As community participation grows, dedicated installations, graffiti rooms, and AR/VR metaverse creations enrich the game universe.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- History Log Modal -->
+  <div id="modal-history" class="modal-overlay">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h2>📜 Mystical Journey Log</h2>
+        <button class="modal-close" data-close="modal-history">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div style="display: flex; gap: 0.5rem; margin-bottom: 1rem; justify-content: flex-end;">
+          <button id="btn-export-markdown" class="btn btn-sm btn-cyan">📥 Export Markdown</button>
+          <button id="btn-export-json" class="btn btn-sm">📥 Export JSON</button>
+        </div>
+        <div id="history-list" class="history-list">
+          <p style="color: var(--text-muted); text-align: center;">No moves recorded yet.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- View 72 Deck Modal -->
+  <div id="modal-deck" class="modal-overlay">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h2>🃏 Active 72-Card Deck</h2>
+        <button class="modal-close" data-close="modal-deck">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div id="deck-gallery-grid" class="deck-gallery-grid">
+          <!-- Rendered by JS -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Real-World Map Modal (12 Radial Sectors & Area Selection) -->
+  <div id="modal-map" class="modal-overlay">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h2>🗺️ Real-World Map & Area Selection</h2>
+        <button class="modal-close" data-close="modal-map">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div style="background: rgba(56, 189, 248, 0.1); border: 1px solid var(--accent-cyan); padding: 0.8rem 1rem; border-radius: 8px; margin-bottom: 1rem; font-size: 0.85rem;">
+          📍 <strong>Click Anywhere on the Map</strong> or select a radial sector below to assign custom real-world coordinates as your active card's <strong>Support Location Card</strong>!
+        </div>
+
+        <div class="map-controls">
+          <div>
+            <label class="form-label">Latitude</label>
+            <input type="number" step="any" id="map-lat" class="input-text" value="51.5074">
+          </div>
+          <div>
+            <label class="form-label">Longitude</label>
+            <input type="number" step="any" id="map-lng" class="input-text" value="-0.1278">
+          </div>
+          <div>
+            <label class="form-label">Radius (km)</label>
+            <input type="number" step="0.5" id="map-radius" class="input-text" value="5">
+          </div>
+          <div style="display: flex; align-items: flex-end; gap: 0.5rem;">
+            <button id="btn-use-location" class="btn btn-sm btn-cyan" style="height: 38px;">📍 My Location</button>
+            <button id="btn-update-map" class="btn btn-sm btn-primary" style="height: 38px;">Render Map</button>
+          </div>
+        </div>
+
+        <div id="map-element"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- App Footer with Copyright and License -->
+  <footer class="app-footer">
+    <div class="footer-content">
+      <div>© 2026 <strong>Artur Kraskov • Monada Dominion</strong> (KVK 87782324). All Rights Reserved.</div>
+      <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.25rem;">
+        Licensed under <a href="https://github.com/Monada-Dominion/domain_3/blob/main/LICENSE" target="_blank" style="color: var(--accent-gold); text-decoration: underline;">Monada Dominion MD-NC-ND v1.1 License</a> & CC BY-NC-ND 4.0.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Victory Modal -->
+  <div id="modal-victory" class="modal-overlay">
+    <div class="modal-container" style="max-width: 600px;">
+      <div class="modal-body victory-card">
+        <div style="font-size: 3.5rem;">👑</div>
+        <h1 class="victory-title">VICTORY!</h1>
+        <div id="victory-winner-name" class="victory-winner">Player 1 Has Completed The Mystical Journey</div>
+        <p style="color: var(--accent-gold-light);">Goal Accomplished: <span id="victory-winner-goal"></span></p>
+
+        <div style="margin-top: 1.5rem; text-align: left;">
+          <h3 style="font-family: var(--font-title); color: var(--accent-gold); margin-bottom: 0.5rem;">3 Winning Insights:</h3>
+          <div id="victory-insights-list" class="winning-insights-list"></div>
+        </div>
+
+        <div style="display: flex; gap: 1rem; justify-content: center; margin-top: 2rem;">
+          <button id="btn-victory-restart" class="btn btn-primary">🎮 Play Again</button>
+          <button id="btn-victory-export" class="btn btn-cyan">📥 Export Journey Summary</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script src="book_data.js"></script>
+  <script src="app.js"></script>
+
+</body>
+</html>

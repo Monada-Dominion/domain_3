@@ -1,0 +1,13 @@
+# GitHub Pages configuration for pre-built static site
+exclude:
+  - ".git"
+  - ".gitignore"
+  - "*.json.swp"
+
+# Disable processing of assets
+sass:
+  sass_dir: _sass
+  style: compressed
+
+# Output directory
+destination: _site

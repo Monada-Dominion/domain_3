@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mystical Journey - Game Manual & Rules (Bilingual EN / RU)</title>
+  <meta name="description" content="Official game manual and rules for Mystical Journey (MJ): Triangle System in English and Russian (Русский).">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .manual-content {
+      max-width: 960px;
+      margin: 0 auto;
+      background: var(--bg-card);
+      border: 1px solid var(--border-gold);
+      border-radius: 16px;
+      padding: 2.5rem;
+      backdrop-filter: blur(12px);
+      box-shadow: var(--shadow-card);
+    }
+    .manual-title {
+      font-family: var(--font-title);
+      color: var(--text-gold);
+      font-size: 2.2rem;
+      text-align: center;
+      margin-bottom: 0.5rem;
+    }
+    .manual-subtitle {
+      text-align: center;
+      color: var(--accent-cyan);
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .lang-switcher-bar {
+      display: flex;
+      justify-content: center;
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+    }
+    .lang-btn {
+      background: var(--bg-glass);
+      border: 1px solid var(--border-glass);
+      color: var(--text-main);
+      padding: 0.5rem 1.2rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+    .lang-btn.active {
+      background: rgba(226, 176, 76, 0.25);
+      border-color: var(--accent-gold);
+      color: var(--accent-gold-light);
+      box-shadow: 0 0 12px rgba(226, 176, 76, 0.25);
+    }
+    .manual-section {
+      margin-bottom: 2rem;
+      border-bottom: 1px solid var(--border-glass);
+      padding-bottom: 1.5rem;
+    }
+    .manual-section:last-child {
+      border-bottom: none;
+    }
+    .manual-section h2 {
+      font-family: var(--font-title);
+      color: var(--accent-gold-light);
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+    }
+    .manual-section p, .manual-section li {
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: var(--text-main);
+    }
+    .manual-section ul, .manual-section ol {
+      padding-left: 1.5rem;
+      margin-top: 0.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .table-container {
+      overflow-x: auto;
+      margin-top: 1rem;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+    }
+    th, td {
+      border: 1px solid var(--border-glass);
+      padding: 0.75rem;
+      text-align: left;
+    }
+    th {
+      background: rgba(226, 176, 76, 0.15);
+      color: var(--accent-gold);
+      font-family: var(--font-title);
+    }
+    tr:nth-child(even) {
+      background: rgba(255, 255, 255, 0.02);
+    }
+    .badge-tag {
+      background: rgba(56, 189, 248, 0.15);
+      color: var(--accent-cyan);
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      font-size: 0.75rem;
+    }
+    .lang-block {
+      display: block;
+    }
+    .lang-block.hidden {
+      display: none !important;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- App Header -->
+  <header class="app-header">
+    <div class="brand">
+      <div class="brand-icon">🔮</div>
+      <div>
+        <div class="brand-title">MYSTICAL JOURNEY</div>
+        <div class="brand-subtitle">Official Manual • Официальное Руководство</div>
+      </div>
+    </div>
+    <div class="header-actions">
+      <a href="index.html" class="btn btn-primary btn-sm">🎮 Back to Web App</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <article class="manual-content">
+      <h1 class="manual-title">MYSTICAL JOURNEY</h1>
+      <div class="manual-subtitle">Online & Tabletop Manual: Triangle System</div>
+
+      <!-- Language Switcher Bar -->
+      <div class="lang-switcher-bar">
+        <button id="btn-lang-en" class="lang-btn active">🇬🇧 English</button>
+        <button id="btn-lang-ru" class="lang-btn">🇷🇺 Русский</button>
+        <button id="btn-lang-both" class="lang-btn">🌐 Both / Оба</button>
+      </div>
+
+      <!-- Section 1: Welcome -->
+      <section class="manual-section">
+        <h2>✨ Introduction & Purpose / Введение и цель</h2>
+        
+        <div class="lang-block lang-en">
+          <p>Welcome to <strong>Mystical Journey</strong>! The game is an operational algorithm designed to transform real life. By making turns within the game, players transform their real-world situations, gain deep insights, and advance toward their core personal goals.</p>
+          <p style="margin-top: 0.75rem;"><strong>Before Starting:</strong> Every player must formulate a clear, vital goal they wish to achieve. Players introduce themselves: <em>Who are you? What is your current focus in life?</em></p>
+        </div>
+
+        <div class="lang-block lang-ru hidden">
+          <p>Приветствие: Всем привет! Игра «Мистическое путешествие» — это работающий алгоритм, который изменяет нашу жизнь. Совершая ходы в Игре, мы трансформируем реальную жизнь.</p>
+          <p style="margin-top: 0.75rem;">Чтобы начать игру, нужно сформулировать свою цель и в игре получить инсайт. Напишите пару слов о себе до того, как начнётся игра: <em>Кто вы? Чем занимаетесь?</em></p>
+        </div>
+      </section>
+
+      <!-- Section 2: Rules -->
+      <section class="manual-section">
+        <h2>📜 Core Rules / Правила Игры</h2>
+
+        <div class="lang-block lang-en">
+          <ol>
+            <li><strong>Goal Formulation:</strong> Prepare a single, vital goal you want to realize in your life.</li>
+            <li><strong>Turn Rotation:</strong> Players move in a circle — Clockwise (Team 1) vs. Counter-Clockwise (Team 2).</li>
+            <li><strong>Three Primary Spheres:</strong> <strong>Matter</strong>, <strong>Energy</strong>, and <strong>Information</strong>. Move between these points.</li>
+            <li><strong>Nested Triangles:</strong> Each sphere contains a sub-triangle (Matter -> M, E, I; Energy -> M, E, I; Information -> M, E, I).</li>
+            <li><strong>Time Cards:</strong> Each turn is accompanied by 3 Time Cards indicating which aspect in a sphere is weakest.</li>
+            <li><strong>Making a Move:</strong> Draw a text card, interpret it as a metaphoric card, and direct your interpretation specifically to strengthen the weakest aspect.</li>
+            <li><strong>Hints:</strong> Each player is allowed up to 2 hints per game session.</li>
+            <li><strong>Team Dynamics:</strong> Teammates help refine insights. Opponents challenge and test conclusions to ensure true conviction.</li>
+            <li><strong>Strategy Alignment:</strong> Strictly follow your assigned archetype strategy to obtain genuine insights.</li>
+            <li><strong>Completing the Triangle:</strong> Make 3 successful moves to gather 3 insights (1 per sphere) to form your full action triangle.</li>
+            <li><strong>Recording Insights:</strong> Write down all insights—your own and those arising from teammates' turns.</li>
+            <li><strong>Goal Focus:</strong> Maintain continuous awareness on your declared goal throughout the journey.</li>
+          </ol>
+        </div>
+
+        <div class="lang-block lang-ru hidden">
+          <ol>
+            <li>Для игры нужна цель — подготовьте её формулировку. Это должна быть важная для вас цель, которую вы хотите достигнуть.</li>
+            <li>В игре ходим по кругу: по часовой (команда 1) — против часовой (команда 2).</li>
+            <li>Есть всего три точки: материя, энергия, информация — двигаемся между ними.</li>
+            <li>В каждой точке есть такой же треугольник: в материи (мат., энерг., инф.), в энергии (м, э, и), в информации (м, э, и).</li>
+            <li>Каждый ход сопровождается тремя картами времени из колоды, они показывают, какой аспект в каждой точке самый слабый (например, энергия в точке материи или материя в точке информации).</li>
+            <li>Чтобы сделать ход, нужно интерпретировать карточку с текстом и направить интерпретацию на самый слабый аспект.</li>
+            <li>Можно получить подсказку — 2 на всю игру.</li>
+            <li>Игроки одной команды помогают, игроки другой мешают, сбивают и отрицают выводы. Если вы будете помогать, когда должны мешать, или наоборот, то получите пропуск хода или лишитесь подсказок.</li>
+            <li>Карточка с текстом — обрабатываете её как метафорическую карту, читаете между строк и накладываете на свою жизнь. ОЧЕНЬ ВАЖНО помнить о своей стратегии.</li>
+            <li>За игру надо сделать три хода и собрать треугольник, что даёт инсайт для реализации в жизни на пути к цели.</li>
+            <li>Нужно записывать себе инсайты, которые приходят с ходами других игроков — мы все в одном поле.</li>
+            <li>Важно всегда помнить свою цель, удерживать на ней внимание и записывать свои инсайты.</li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- Section 3: Strategies Table -->
+      <section class="manual-section">
+        <h2>🧩 Archetypes & Field Strategies / Поле и Стратегии</h2>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Field Archetype / Поле</th>
+                <th>Strategy / Стратегия</th>
+                <th>Guidance / Описание</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>Poppy Field / Маковое поле</td>
+                <td><span class="badge-tag">Direct / Прямая</span></td>
+                <td>Think linearly, build logical chains / Размышлять линейно, строить логические цепочки.</td>
+              </tr>
+              <tr>
+                <td>2–3</td>
+                <td>Prison / Тюрьма</td>
+                <td><span class="badge-tag">Inverse / Обратная</span></td>
+                <td>Quiet your ego; internal focus / Быть в себе, быть никем, заглушать своё эго.</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>Palace of the Screen / Дворец с экрана</td>
+                <td><span class="badge-tag">Direct / Прямая</span></td>
+                <td>Amplify feeling; act intuitively / Усиливать чувство, действовать интуитивно.</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td>Palace / Time Crystal</td>
+                <td><span class="badge-tag">Dual / Двойная</span></td>
+                <td>Discern desires from Essence vs. Personality / Осознавать, какие желания исходят от сущности, а какие от личности.</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td>Time Crystal / Кристалл времени</td>
+                <td><span class="badge-tag">Inverse / Обратная</span></td>
+                <td>Recognize desires originating from essence / Осознавать желания сущности.</td>
+              </tr>
+              <tr>
+                <td>7–8</td>
+                <td>Prison / Poppy Field</td>
+                <td><span class="badge-tag">Direct / Inverse</span></td>
+                <td>Observe yourself from the outside; think non-standardly / Наблюдать за собой со стороны, думать нестандартно.</td>
+              </tr>
+              <tr>
+                <td>9</td>
+                <td>Poppy Field / Маковое поле</td>
+                <td><span class="badge-tag">Inverse / Обратная</span></td>
+                <td>Break habitual thinking patterns / Думать нестандартно, не думать как всегда.</td>
+              </tr>
+              <tr>
+                <td>10</td>
+                <td>Time Crystal / Кристалл времени</td>
+                <td><span class="badge-tag">Direct / Прямая</span></td>
+                <td>Harmonize thoughts, feelings, and sensations / Объединять мысли, чувства и ощущения при принятии решения.</td>
+              </tr>
+              <tr>
+                <td>11–12</td>
+                <td>Time Crystal / Palace</td>
+                <td><span class="badge-tag">Inverse / Обратная</span></td>
+                <td>Listen to your heart; follow intuition / Слушать своё сердце, не делать привычное, идти в противоположном направлении.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Section 4: 12 Questions -->
+      <section class="manual-section">
+        <h2>❓ 12 Card Reflection Questions / 12 Вопросов к Карточкам</h2>
+
+        <div class="lang-block lang-en">
+          <ol>
+            <li>What is this text about?</li>
+            <li>What associations and images arise while reading?</li>
+            <li>What attracted your attention the most, and why?</li>
+            <li>What in the text remained unnoticed?</li>
+            <li>Is there something about you in this text? What?</li>
+            <li>What experiences and feelings does the text evoke in you?</li>
+            <li>How does this text answer your query?</li>
+            <li>How is it connected to the weak aspect indicated by the Time Cards?</li>
+            <li>What knowledge does this text carry for you?</li>
+            <li>What lesson can be drawn from it?</li>
+            <li>What specifically do you need to do, change, or realize?</li>
+            <li>How exactly is the text connected to your reality? What details serve as portals of meaning?</li>
+          </ol>
+        </div>
+
+        <div class="lang-block lang-ru hidden">
+          <ol>
+            <li>О чём этот текст?</li>
+            <li>Какие ассоциации и образы приходят тебе во время чтения?</li>
+            <li>Что привлекло твоё внимание больше всего? Почему?</li>
+            <li>Что есть в тексте, что осталось незамеченным?</li>
+            <li>Есть ли что-то про тебя в этом тексте? Что?</li>
+            <li>Какие переживания и чувства у тебя вызывает текст?</li>
+            <li>Как этот текст отвечает на твой запрос?</li>
+            <li>Как он связан именно с тем слабым аспектом, на который указали карты времени?</li>
+            <li>Какое знание несёт тебе этот текст?</li>
+            <li>Какой урок можно из него извлечь?</li>
+            <li>Что конкретно тебе нужно сделать, поменять или осознать?</li>
+            <li>Как именно текст связан с твоей реальностью? Какие детали служат проводниками смыслов из текста в твою реальность?</li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- Section 5: Aspect Decoding -->
+      <section class="manual-section">
+        <h2>🔮 Aspect Decoding Guide / Значения Аспектов</h2>
+
+        <div class="lang-block lang-en">
+          <h3 style="color: var(--accent-gold); margin-top: 1rem; font-size: 1.1rem;">💎 MATTER (Материя)</h3>
+          <ul>
+            <li><strong>Matter / Matter:</strong> External physical actions are weak. Strengthen external steps to advance.</li>
+            <li><strong>Matter / Energy:</strong> Mood & energy driving external actions need boosting.</li>
+            <li><strong>Matter / Information:</strong> Understanding of external actions and reality needs deepening.</li>
+          </ul>
+
+          <h3 style="color: var(--accent-gold); margin-top: 1rem; font-size: 1.1rem;">⚡ ENERGY (Энергия)</h3>
+          <ul>
+            <li><strong>Energy / Matter:</strong> Actions aimed at creating your state/mood are unexpressed.</li>
+            <li><strong>Energy / Energy:</strong> Emotional response to your own state needs harmonization.</li>
+            <li><strong>Energy / Information:</strong> Understanding of how your state/mood is generated requires development.</li>
+          </ul>
+
+          <h3 style="color: var(--accent-gold); margin-top: 1rem; font-size: 1.1rem;">⏳ INFORMATION (Информация)</h3>
+          <ul>
+            <li><strong>Information / Matter:</strong> External actions toward developing awareness need strengthening.</li>
+            <li><strong>Information / Energy:</strong> Mood & motivation toward expanding understanding need boosting.</li>
+            <li><strong>Information / Information:</strong> Intellectual synthesis and fundamental comprehension need focus.</li>
+          </ul>
+        </div>
+
+        <div class="lang-block lang-ru hidden">
+          <h3 style="color: var(--accent-gold); margin-top: 1rem; font-size: 1.1rem;">💎 МАТЕРИЯ</h3>
+          <ul>
+            <li><strong>Материя / материя:</strong> Твои внешние действия для достижения материального результата слабы, прокачивать надо их.</li>
+            <li><strong>Материя / энергия:</strong> Твоё настроение, твоя энергетика, которые ты создаёшь для совершения внешних действий, недостаточно развиты.</li>
+            <li><strong>Материя / информация:</strong> Твоё понимание того, как ты действуешь внешне, недостаточно развито.</li>
+          </ul>
+
+          <h3 style="color: var(--accent-gold); margin-top: 1rem; font-size: 1.1rem;">⚡ ЭНЕРГИЯ</h3>
+          <ul>
+            <li><strong>Энергия / материя:</strong> Действия, которые ты совершаешь для создания своего настроения и энергетики, не проявлены в достаточной степени.</li>
+            <li><strong>Энергия / энергия:</strong> Твоё настроение относительно своего же настроения или состояния не проявлено достаточно хорошо.</li>
+            <li><strong>Энергия / информация:</strong> Твоё понимание того, как создаётся энергетика и настроение, не развито в нужной степени.</li>
+          </ul>
+
+          <h3 style="color: var(--accent-gold); margin-top: 1rem; font-size: 1.1rem;">⏳ ИНФОРМАЦИЯ</h3>
+          <ul>
+            <li><strong>Информация / материя:</strong> Твои внешние действия, направленные на развитие понимания и укрепления своей осознанности, не развиты.</li>
+            <li><strong>Информация / энергия:</strong> Твоё настроение или энергетика по отношению к твоему пониманию и развитию этого понимания не проявлены в достаточной степени.</li>
+            <li><strong>Информация / информация:</strong> Твоё понимание того, как устроена интеллектуальная сфера, проявлено слабо. Сконцентрируйся на осознанности.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Section 6: Integration -->
+      <section class="manual-section">
+        <h2>🎯 Post-Game Integration / Вопросы для Осознанности</h2>
+        <div class="lang-block lang-en">
+          <ul>
+            <li>What did you know about your goal before starting the journey?</li>
+            <li>What feelings arose during the card tasks?</li>
+            <li>How did your perspective or goals shift throughout the game?</li>
+            <li>What core insights will form your immediate action plan in real life?</li>
+          </ul>
+        </div>
+        <div class="lang-block lang-ru hidden">
+          <ul>
+            <li>Что Вы знали о своей цели или своём вопросе до того, как мы начали?</li>
+            <li>Каким был процесс Вашей работы над инсайтами? какие чувства были по поводу заданий?</li>
+            <li>Какие были Ваши цели в процессе игры? Поменялись ли Ваши цели в процессе?</li>
+            <li>Что Вы узнали о самом себе в процессе игры и что обязательно продолжите применять в будущем?</li>
+          </ul>
+        </div>
+      </section>
+
+      <div style="text-align: center; margin-top: 2rem;">
+        <a href="index.html" class="btn btn-primary" style="padding: 0.8rem 2.5rem; font-size: 1.1rem;">
+          ✨ Launch Mystical Journey Game App
+        </a>
+      </div>
+    </article>
+  </main>
+
+  <!-- App Footer with Copyright and License -->
+  <footer class="app-footer">
+    <div class="footer-content">
+      <div>© 2026 <strong>Artur Kraskov • Monada Dominion</strong> (KVK 87782324). All Rights Reserved.</div>
+      <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.25rem;">
+        Licensed under <a href="https://github.com/Monada-Dominion/domain_3/blob/main/LICENSE" target="_blank" style="color: var(--accent-gold); text-decoration: underline;">Monada Dominion MD-NC-ND v1.1 License</a> & CC BY-NC-ND 4.0.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const btnEn = document.getElementById('btn-lang-en');
+    const btnRu = document.getElementById('btn-lang-ru');
+    const btnBoth = document.getElementById('btn-lang-both');
+    const blocksEn = document.querySelectorAll('.lang-en');
+    const blocksRu = document.querySelectorAll('.lang-ru');
+
+    function setActiveBtn(activeBtn) {
+      [btnEn, btnRu, btnBoth].forEach(b => b.classList.remove('active'));
+      activeBtn.classList.add('active');
+    }
+
+    btnEn.addEventListener('click', () => {
+      setActiveBtn(btnEn);
+      blocksEn.forEach(b => b.classList.remove('hidden'));
+      blocksRu.forEach(b => b.classList.add('hidden'));
+    });
+
+    btnRu.addEventListener('click', () => {
+      setActiveBtn(btnRu);
+      blocksEn.forEach(b => b.classList.add('hidden'));
+      blocksRu.forEach(b => b.classList.remove('hidden'));
+    });
+
+    btnBoth.addEventListener('click', () => {
+      setActiveBtn(btnBoth);
+      blocksEn.forEach(b => b.classList.remove('hidden'));
+      blocksRu.forEach(b => b.classList.remove('hidden'));
+    });
+  </script>
+
+</body>
+</html>

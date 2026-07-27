@@ -1,0 +1,1 @@
+Images obtained from the internet, public sources.
