@@ -89,6 +89,6 @@ Found a typo or have a suggestion? Contributions are welcome! Please feel free t
 
 ## 📄 License
 
-Monada Dominion Non-Commercial No-Derivatives Source License (MD-NC-ND) v1.0
+Monada Dominion Non-Commercial No-Derivatives Source License (MD-NC-ND) v1.1
 
 This project is open-source. See the [LICENSE](LICENSE) file for more details.
